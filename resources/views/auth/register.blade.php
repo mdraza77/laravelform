@@ -10,35 +10,71 @@
 </head>
 
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <form action="{{route('register')}}" method="POST" class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm space-y-4">
-        @csrf
+    
+    {{-- Main container for the registration card --}}
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-sm">
 
-        <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"
-            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        @error('name')
-            <p class="text-red-600 text-sm">{{ $message }}</p>
-        @enderror
+        {{-- 1. Heading Added --}}
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Create Account</h1>
+        </div>
 
-        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}"
-            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        @error('email')
-            <p class="text-red-600 text-sm">{{ $message }}</p>
-        @enderror
+        <form action="{{route('register')}}" method="POST" class="space-y-4">
+            @csrf
 
-        <input type="password" name="password" placeholder="Password"
-            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        @error('password')
-            <p class="text-red-600 text-sm">{{ $message }}</p>
-        @enderror
+            {{-- Name Field with Label --}}
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input id="name" type="text" name="name" placeholder="Your Name" value="{{ old('name') }}"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                @error('name')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <input type="password" name="password_confirmation" placeholder="Confirm Password"
-            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            {{-- Email Field with Label --}}
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input id="email" type="email" name="email" placeholder="email@example.com" value="{{ old('email') }}"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                @error('email')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <button type="submit"
-            class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
-            Register
-        </button>
-    </form>
+            {{-- Password Field with Label --}}
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input id="password" type="password" name="password" placeholder="Create a Password"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                @error('password')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- Confirm Password Field with Label --}}
+            <div>
+                 <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password"
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition font-semibold">
+                Register
+            </button>
+        </form>
+
+        {{-- 2. Link to Login Page Added --}}
+        <div class="text-center text-sm text-gray-600 mt-6">
+            <p>
+                Already have an account?
+                <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">
+                    Sign In
+                </a>
+            </p>
+        </div>
+
+    </div>
 </body>
-
 </html>

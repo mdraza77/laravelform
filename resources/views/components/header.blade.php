@@ -87,7 +87,7 @@
             <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Edit Profile</a>
             <form action="{{ route('logout') }}" method="POST" class="block">
                 @csrf
-                <button type="submit" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</button>
+                <button type="submit" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100" onclick="return confirm('Are you sure you want to logout?')">Logout</button>
             </form>
         `;
         userMenuContainer.appendChild(dropdownMenu);

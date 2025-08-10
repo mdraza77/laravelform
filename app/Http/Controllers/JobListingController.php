@@ -15,12 +15,13 @@ class JobListingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string',
-            'company' => 'required|string',
-            'location' => 'required|string',
-            'employment_type' => 'required|string',
-            'salary_range' => 'nullable|string',
-            'skills' => 'required|string'
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|min:50',
+            'company' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'employment_type' => 'required|in:Full-time,Part-time,Contract,Internship,Temporary',
+            'salary_range' => 'nullable|string|max:100',
+            'skills' => 'required|string|min:5'
         ]);
 
         JobListing::create($request->all());

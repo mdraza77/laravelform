@@ -8,6 +8,7 @@ class JobListing extends Model
 {
     protected $fillable = [
         'title',
+        'description',
         'company',
         'location',
         'employment_type',
