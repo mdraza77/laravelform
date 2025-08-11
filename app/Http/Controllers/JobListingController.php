@@ -12,20 +12,16 @@ class JobListingController extends Controller
         return view('job_listings.create');
     }
 
-    // app/Http/Controllers/JobListingController.php
-
-    public function index()
+    public function index(Request $request) // 2. Function mein (Request $request) add karein
     {
-        // Saare jobs fetch karein, sabse naye upar
-        $jobs = JobListing::latest()->paginate(6);
-
-        // View ko jobs data ke saath return karein
+        // 3. auth()->user() ko $request->user() se badal dein
+        $jobs = $request->user()->jobListings()->latest()->paginate(5);
         return view('job_listings.show', ['jobs' => $jobs]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|min:50',
             'company' => 'required|string|max:255',
@@ -35,8 +31,8 @@ class JobListingController extends Controller
             'skills' => 'required|string|min:5'
         ]);
 
-        JobListing::create($request->all());
-        return redirect()->route('job-listings.create')->with('success', 'Job published successfully!');
+        $request->user()->jobListings()->create($validatedData);
+        return redirect()->route('job-listings.show')->with('success', 'Job posted successfully!');
     }
 
     public function edit(JobListing $job)

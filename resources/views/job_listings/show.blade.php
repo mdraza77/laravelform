@@ -63,6 +63,11 @@
                                 </span>
                             </div>
                             <p class="text-md text-gray-700 font-medium">{{ $job->company }}</p>
+                            {{-- This new line displays the user's name --}}
+                            <p class="text-sm text-gray-500 mt-2">
+                                <i class="fas fa-user-tie mr-1"></i>
+                                Posted by: <span class="font-semibold">{{ $job->user->name }}</span>
+                            </p>
 
                             <div class="mt-4 space-y-2 text-sm text-gray-600">
                                 <p class="flex items-center"><i
