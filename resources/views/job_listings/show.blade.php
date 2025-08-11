@@ -110,6 +110,8 @@
             {{ $jobs->links() }}
         </div>
     </main>
+
+    <x-footer />
 </body>
 
 </html>

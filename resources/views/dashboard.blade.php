@@ -94,13 +94,14 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div
                     class="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                    <div class="flex items-center">
+                    <div class="flex items-center" title="Total {{ $totalJobCount }} active jobs">
                         <div class="p-3 bg-blue-100 rounded-lg">
                             <i class="fas fa-briefcase text-blue-600 text-xl"></i>
                         </div>
                         <div class="ml-4">
                             <p class="text-sm font-medium text-gray-600">Active Jobs</p>
-                            <p class="text-2xl font-bold text-gray-900">2,847</p>
+                            <p class="text-2xl font-bold text-gray-900">
+                                {{ $totalJobCount }}</p>
                         </div>
                     </div>
                 </div>
@@ -363,13 +364,15 @@
         </div>
     </main>
 
-    <footer class="bg-white border-t border-gray-200 mt-16">
+    {{-- <footer class="bg-white border-t border-gray-200 mt-16">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="text-center text-gray-500 text-sm">
                 <p>&copy; 2024 Job Portal. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+    </footer> --}}
+
+    <x-footer />
 
     {{-- <script>
     // Profile Dropdown Logic

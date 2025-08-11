@@ -136,7 +136,7 @@
     </main>
 
     {{-- You can also add a reusable footer if you have one --}}
-    {{-- <x-footer /> --}}
+    <x-footer />
 
 </body>
 
