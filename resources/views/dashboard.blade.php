@@ -176,11 +176,13 @@
 
                         <!-- Action Buttons -->
                         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <button
+                            <a href="{{ route('settings.index') }}">
+                                <button
                                 class="w-full sm:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-md">
                                 <i class="fas fa-edit mr-2"></i>
                                 Edit Profile
                             </button>
+                            </a>
 
                             <form action="{{ route('logout') }}" method="POST"
                                 class="inline-block w-full sm:w-auto">

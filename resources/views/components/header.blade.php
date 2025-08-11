@@ -18,7 +18,7 @@
                 <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                     <i class="fas fa-file-alt mr-2"></i>My Applications
                 </a>
-                <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                <a href="{{route('settings.index')}}" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                     <i class="fas fa-cog mr-2"></i>Settings
                 </a>
             </nav>

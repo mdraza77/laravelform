@@ -23,7 +23,7 @@
             </div>
             <a href="{{ route('job-listings.create') }}"
                 class="w-full sm:w-auto bg-indigo-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-indigo-700 transition flex items-center justify-center shadow-sm">
-                <i class="fas fa-plus mr-2"></i> Post a New Job
+                <i class="fas fa-plus mr-2"></i> Post Job
             </a>
         </div>
 
@@ -95,7 +95,7 @@
                                 @method('DELETE')
                                 <button type="submit"
                                     class="flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm font-medium">
-                                    <i class="fas fa-trash-alt mr-2"></i> Delete
+                                    <i class="fas fa-trash-alt mr-2"></i> Trash
                                 </button>
                             </form>
                         </div>

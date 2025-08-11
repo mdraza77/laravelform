@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory; // Ise add karna achhi practice hai
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class JobListing extends Model
 {
-    use HasFactory; // Ise bhi add karein
+    use HasFactory, SoftDeletes; // Ise bhi add karein
 
     protected $fillable = [
         'title',
