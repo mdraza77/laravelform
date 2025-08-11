@@ -150,4 +150,13 @@ class JobListingController extends Controller
         return redirect()->route('job-listings.show')
             ->with('success', 'Job listing has been deleted successfully.');
     }
+
+    public function show(JobListing $job)
+    {
+        // Eager load the user relationship to get the poster's name
+        $job->load('user');
+
+        // Return a new view with the single job's data
+        return view('job_listings.single', ['job' => $job]);
+    }
 }
